@@ -1,0 +1,52 @@
+#%RAML 0.8
+title: Sample API
+baseUri: http://localhost:6060
+
+/users:
+  description: "All Users"
+  get: 
+    description: "Get the list of all users"
+    responses: 
+      200: 
+        body: 
+          application/json: 
+            example: !include GET_All_Users_Response.json
+  post: 
+    description: "Add a user to the list of users"
+    body: 
+      application/json: 
+        example: !include POST_User_Request.json
+    responses: 
+      200: 
+        body: 
+          application/json: 
+            example: !include GET_All_Users_Response.json
+  put: 
+    description: "Update a user"
+    body: 
+      application/json: 
+        example: !include PUT_User_Request.json
+    responses: 
+      200: 
+        body: 
+          application/json: 
+            example: !include GET_All_Users_Response.json
+  /{id}: 
+    get: 
+      responses: 
+        200: 
+          body: 
+            application/json: 
+              example: !include GET_User_Response.json
+        404: 
+          body: 
+            application/json: 
+              example: !include User_Not_Found.json
+    delete: 
+      responses: 
+        200: 
+        404: 
+          body: 
+            application/json: 
+              example: !include User_Not_Found.json
+    
