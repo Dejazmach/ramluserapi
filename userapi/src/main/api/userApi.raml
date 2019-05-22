@@ -33,6 +33,7 @@ baseUri: http://localhost:6060
             example: !include GET_All_Users_Response.json
   /{id}: 
     get: 
+      description: "Get a user by id"
       responses: 
         200: 
           body: 
